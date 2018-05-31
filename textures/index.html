@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VR Textures</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="grass" src="assets/grass.jpg">
+        <img id="wall" src="assets/wall.jpg">
+      </a-assets>
+
+      <a-box src="#wall" position="0 1.5 -5" width="6" depth="1" height="4"></a-box>
+
+      <a-plane src="#grass" repeat="10 10" width="30" height="30" rotation="-90 0 0"></a-plane>
+
+      <a-sky color="skyblue"></a-sky>
+
+    </a-scene>
+  </body>
+</html>

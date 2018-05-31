@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VR Models</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <video src="assets/city.mp4" id="city" autoplay loop="true"></video>
+      </a-assets>
+
+      <a-videosphere src="#city"></a-videosphere>
+
+    </a-scene>
+  </body>
+</html>

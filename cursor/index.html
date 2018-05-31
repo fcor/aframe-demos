@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VR Models</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-camera>
+        <a-cursor fuse="true" fuseTimeout="3000"></a-cursor>
+      </a-camera>
+
+      <a-box color="red" position="0 0 -4" ></a-box>
+
+      <a-sky color="skyblue"></a-sky>
+
+    </a-scene>
+
+    <script type="text/javascript">
+      const box = document.querySelector('a-box')
+
+      box.addEventListener('click', function() {
+        box.setAttribute('color', 'blue')
+      })
+
+    </script>
+  </body>
+</html>

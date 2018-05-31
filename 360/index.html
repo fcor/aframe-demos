@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  <title>Virtual Tour</title>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+</head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="country" src="assets/Country-min.jpg">
+        <!-- <img id="country-mini" src="assets/Country-mini.jpg"> -->
+        <img id="sb1" src="assets/santa-barbara-min.jpg">
+        <!-- <img id="sb1-mini" src="assets/santa-barbara-mini.jpg"> -->
+        <img id="sb2" src="assets/santa-barbara-2-min.jpg">
+        <!-- <img id="sb2-mini" src="assets/santa-barbara-2-mini.jpg"> -->
+        <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+      </a-assets>
+
+      <!-- <a-image src="#country-mini" position="-2 1.8 -3" width="1.33" height="1" onclick="show('country')" sound="on: click; src: #click-sound"></a-image> -->
+      <!-- <a-image src="#sb1-mini" position="0 1.8 -4" width="1.33" height="1" onclick="show('sb1')" sound="on: click; src: #click-sound"></a-image> -->
+      <!-- <a-image src="#sb2-mini" position="2 1.8 -4" width="1.33" height="1" onclick="show('sb2')" sound="on: click; src: #click-sound"></a-image> -->
+
+      <a-plane position="-1.5 1.2 -4" color="#292929" width="1" height="1" onclick="show('country')" sound="on:click; src: #click-sound"
+                event-set__1="_event: mousedown; scale: 1 1 1"
+                event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                event-set__4="_event: mouseleave; scale: 1 1 1"
+      >
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Bold.json;shader:msdf;value:El Country" scale="3 3 3" position="1.06 0.241 0"></a-entity>
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Medium.json;shader:msdf;value://////////////////////////////" position="0.454 -0.006 0" scale="1.8 1.8 1.8"></a-entity>
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Medium.json;shader:msdf;value:1.3km" position="0.698 -0.295 0" scale="2.3 2.3 2.3"></a-entity>
+      </a-plane>
+
+      <a-plane position="0 1.2 -4" color="#292929" width="1" height="1" onclick="show('sb1')" sound="on:click; src: #click-sound"
+                event-set__1="_event: mousedown; scale: 1 1 1"
+                event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                event-set__4="_event: mouseleave; scale: 1 1 1"
+      >
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Bold.json; shader:msdf; value:La Palma" scale="3 3 3" position="1.06 0.241 0"></a-entity>
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Medium.json;shader:msdf;value://////////////////////////////" position="0.454 -0.006 0" scale="1.8 1.8 1.8"></a-entity>
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Medium.json;shader:msdf;value:1.8km" position="0.698 -0.295 0" scale="2.3 2.3 2.3"></a-entity>
+      </a-plane>
+
+      <a-plane position="1.5 1.2 -4" color="#292929" width="1" height="1" onclick="show('sb2')" sound="on:click;src: #click-sound"
+                event-set__1="_event: mousedown; scale: 1 1 1"
+                event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                event-set__4="_event: mouseleave; scale: 1 1 1"
+      >
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Bold.json; shader:msdf; value:El Tronco" scale="3 3 3" position="1.06 0.241 0"></a-entity>
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Medium.json;shader:msdf;value://////////////////////////////" position="0.454 -0.006 0" scale="1.8 1.8 1.8"></a-entity>
+        <a-entity align="center" anchor="center" text="color:#FFFFFF;font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/roboto/Roboto-Medium.json;shader:msdf;value:1.4km" position="0.698 -0.295 0" scale="2.3 2.3 2.3"></a-entity>
+      </a-plane>
+
+      <a-sky id="sky" radius="10" src="#country"></a-sky>
+
+      <a-entity camera look-controls>
+        <a-cursor id="cursor"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          fuse="true"
+          >
+          <a-animation begin="click" easing="ease-in" attribute="scale" dur="150" fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+        </a-cursor>
+      </a-entity>
+
+      <script type="text/javascript">
+        function show(id) {
+          document.getElementById('sky').setAttribute('src', '#' + id)
+        }
+      </script>
+    </a-scene>
+  </body>
+</html>
