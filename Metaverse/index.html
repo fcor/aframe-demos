@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Metaverse</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.1/dist/aframe-entity-generator-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@3.0.2/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.14/dist/aframe-orbit-controls-component.min.js"></script>
+    <script>
+    AFRAME.registerComponent('random-material', {
+      init: function () {
+        this.el.setAttribute('material', {
+          color: this.getRandomColor(),
+          metalness: Math.random(),
+          roughness: Math.random()
+        });
+      },
+      getRandomColor: function () {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    });
+    AFRAME.registerComponent('random-torus-knot', {
+      init: function () {
+        this.el.setAttribute('geometry', {
+          primitive: 'torusKnot',
+          radius: Math.random() * 10,
+          radiusTubular: Math.random() * .75,
+          p: Math.round(Math.random() * 10),
+          q: Math.round(Math.random() * 10)
+        });
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img src="assets/grid.png" id="grid" crossorigin="anonymous">
+        <img src="assets/stars.jpg" id="sky"  crossorigin="anonymous" />
+        <a-asset-item id="homer-obj" src="assets/homer.obj"></a-asset-item>
+        <a-asset-item id="homer-mtl" src="assets/homer.mtl"></a-asset-item>
+        <a-mixin id="torusKnot"
+                 random-torus-knot
+                 random-material
+                 random-position="min: -100 -60 -80; max: 100 60 80"></a-mixin>
+      </a-assets>
+
+
+      <a-entity id="camera"
+                camera
+                position="0 1.6 0"
+                orbit-controls="autoRotate: true; target: #target; enableDamping: true; dampingFactor: 0.25; rotateSpeed:0.04; minDistance:5; maxDistance:15;"
+        >
+        </a-entity>
+
+      <a-entity entity-generator="mixin: torusKnot; num: 200"></a-entity>
+
+      <!-- Homero -->
+      <a-entity id="target" obj-model="obj: #homer-obj; mtl: #homer-mtl" position="0 0 -4" ></a-entity>
+
+      <!-- Plano -->
+      <a-entity geometry="primitive: plane; width: 10000; height: 10000;"
+                rotation="-90 0 0"
+                material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"
+                >
+      </a-entity>
+
+      <!-- Sky -->
+      <a-sky src="#sky" rotation="0 90 0"></a-sky>
+
+      <!-- Luces -->
+      <a-entity light="color: #ccccff; intensity: .1; type: ambient;" visible=""></a-entity>
+      <a-entity light="color: ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
+      <a-entity light="color: white; intensity: 0.5" position="-5 5 15"></a-entity>
+      <a-entity light="color: white; intensity: .1; type: ambient;"></a-entity>
+
+    </a-scene>
+
+  </body>
+</html>
