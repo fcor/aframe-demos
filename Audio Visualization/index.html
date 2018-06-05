@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Audio</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-audioanalyser-component@^3.0.3/dist/aframe-audioanalyser-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.1/dist/aframe-entity-generator-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.2/dist/aframe-layout-component.min.js"></script>
+    <script src="audioanalyser-levels-scale.js" ></script>
+    <script src="scale-y-color.js" ></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-mixin id="bar"
+          geometry="primitive: box"
+          material="color: black"
+          scale-y-color="from: 255 0 255; to: 255 255 255; maxScale: 35">
+        </a-mixin>
+        <audio id="song" src="cfh.mp3" autoplay loop></audio>
+      </a-assets>
+
+
+      <a-entity position="-75 0 -20"
+        audioanalyser="src: #song; smoothingTimeConstant: 0.7"
+        audioanalyser-levels-scale="max: 50; multiplier: 0.1"
+        entity-generator="mixin: bar; num: 50"
+        layout="type: line"
+        >
+      </a-entity>
+
+      <!-- <a-light type="ambient" color="#222"></a-light>
+      <a-light type="point" position="0 1 0" intensity="2"></a-light> -->
+      <!-- <a-circle color="#333" opacity="0.8" rotation="-90 0 0" radius="12" roughness="1"></a-circle> -->
+      <a-sky color="skyblue"></a-sky>
+    </a-scene>
+  </body>
+</html>
