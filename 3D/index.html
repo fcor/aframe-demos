@@ -12,9 +12,15 @@
         <a-asset-item id="woods" src="assets/bosque.dae"></a-asset-item>
         <a-asset-item id="bulbasaur-obj" src="assets/bulbasaur-pokemon-go.obj"></a-asset-item>
         <a-asset-item id="bulbasaur-mtl" src="assets/bulbasaur-pokemon-go.mtl"></a-asset-item>
+        <a-asset-item id="scyther-obj" src="assets/scyther/scyther-pokemon-go.obj"></a-asset-item>
+        <a-asset-item id="scyther-mtl" src="assets/scyther/scyther-pokemon-go.mtl"></a-asset-item>
+        <a-asset-item id="charizard-obj" src="assets/charizard/charizard-pokemon-go.obj"></a-asset-item>
+        <a-asset-item id="charizard-mtl" src="assets/charizard/charizard-pokemon-go.mtl"></a-asset-item>
       </a-assets>
 
       <a-entity obj-model="obj: #bulbasaur-obj; mtl: #bulbasaur-mtl" position="0 0 -6" scale="0.15 0.15 0.15"> </a-entity>
+      <a-entity obj-model="obj: #scyther-obj; mtl: #scyther-mtl" position="7 0 -4" rotation="0 -70 0" scale="0.15 0.15 0.15"> </a-entity>
+      <a-entity obj-model="obj: #charizard-obj; mtl: #charizard-mtl" position="-7 0 4" rotation="0 110 0" scale="0.15 0.15 0.15"> </a-entity>
       <a-entity collada-model="#woods"> </a-entity>
       <a-plane src="#grass" repeat="10 10" width="30" height="30" rotation="-90 0 0"></a-plane>
       <a-sky color="skyblue"></a-sky>
