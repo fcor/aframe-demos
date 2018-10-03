@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VR Models</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+  </head>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs>
+      <a-assets>
+        <!-- Pokemon Assets -->
+        <!-- <img id="grass" src="assets/grass.jpg">
+        <a-asset-item id="woods" src="assets/bosque.dae"></a-asset-item>
+        <a-asset-item id="bulbasaur-obj" src="assets/bulbasaur-pokemon-go.obj"></a-asset-item>
+        <a-asset-item id="bulbasaur-mtl" src="assets/bulbasaur-pokemon-go.mtl"></a-asset-item>
+        <a-asset-item id="scyther-obj" src="assets/scyther/scyther-pokemon-go.obj"></a-asset-item>
+        <a-asset-item id="scyther-mtl" src="assets/scyther/scyther-pokemon-go.mtl"></a-asset-item>
+        <a-asset-item id="charizard-obj" src="assets/charizard/charizard-pokemon-go.obj"></a-asset-item>
+        <a-asset-item id="charizard-mtl" src="assets/charizard/charizard-pokemon-go.mtl"></a-asset-item> -->
+
+        <!-- Metaverse Assets -->
+        <a-asset-item id="homer-obj" src="assets/homer.obj"></a-asset-item>
+        <a-asset-item id="homer-mtl" src="assets/homer.mtl"></a-asset-item>
+      </a-assets>
+      </a-assets>
+      <a-marker preset="hiro">
+        <!-- Pokemon Scene -->
+        <!-- <a-entity obj-model="obj: #bulbasaur-obj; mtl: #bulbasaur-mtl" position="0 0 -0.26" scale="0.015 0.015 0.015"> </a-entity>
+        <a-entity obj-model="obj: #scyther-obj; mtl: #scyther-mtl" position="0.46 0 -0.26" rotation="0 -70 0" scale="0.015 0.015 0.015"> </a-entity>
+        <a-entity obj-model="obj: #charizard-obj; mtl: #charizard-mtl" position="-0.46 0 0.26" rotation="0 110 0" scale="0.015 0.015 0.015"> </a-entity>
+        <a-entity collada-model="#woods" scale="0.066 0.066 0.066"> </a-entity>
+        <a-plane src="#grass" repeat="10 10" width="2" height="2" rotation="-90 0 0"></a-plane> -->
+
+        <!-- Metaverse Scene -->
+        <a-entity id="target" obj-model="obj: #homer-obj; mtl: #homer-mtl" position="0 0 0" scale="1.2 1.2 1.2" rotation="90 0 0" ></a-entity>
+
+        <!-- <a-plane color="tomato" width="1" height="1" position="0 -1 -1" rotation="0 0 0"></a-plane>
+        <a-plane color="red" width="1" height="1" position="0 -1 -2" rotation="0 0 0"></a-plane>
+        <a-plane color="green" width="1" height="1" position="0.5 -1 -1.5" rotation="0 -90 0"></a-plane>
+        <a-plane color="yellow" width="1" height="1" position="-0.5 -1 -1.5" rotation="0 -90 0"></a-plane>
+        <a-plane color="blue" width="1" height="1" position="0 -1.5 -1.5" rotation="-90 0 0"></a-plane> -->
+
+
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
