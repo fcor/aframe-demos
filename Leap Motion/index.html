@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Leap Motion</title>
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-leap-hands@0.8.0/dist/aframe-leap-hands.umd.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+        <a-assets>
+            <img src="assets/grid.png" id="grid" crossorigin="anonymous">
+            <img src="assets/stars.jpg" id="sky"  crossorigin="anonymous" />
+        </a-assets>
+        <a-entity camera="near: 0.01" look-controls position="0 1.5 0">
+            <a-entity leap-hand="hand: right"></a-entity>
+            <a-entity leap-hand="hand: left"></a-entity>
+        </a-entity>
+
+              <!-- Plano -->
+        <a-entity geometry="primitive: plane; width: 10000; height: 10000;"
+                  rotation="-90 0 0"
+                  material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"
+                  >
+        </a-entity>
+
+<!-- Sky -->
+        <a-sky src="#sky" rotation="0 90 0"></a-sky>
+    </a-scene>
+  </body>
+</html>
